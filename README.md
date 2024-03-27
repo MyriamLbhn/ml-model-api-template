@@ -15,16 +15,38 @@ It includes:
 
 ## Setup
 
-1. Create virtual environement and install requierements:
+1. Create virtual environement and install requierements with Poetry:
 
 
 ```bash
 
-python3 -m venv env
+pip install poetry
 
-pip install -r requirements.txt
+poetry config virtualenvs.in-project true
+```
+
+To generate the pyproject.toml file, you can use the following command:
+
+```bash
+
+poetry init 
 
 ```
+Instead of adding manually the dependencies, you can use the requirements.txt that already exists in the project. Run the flollowing command:
+
+```bash
+
+poetry add $(cat requirements.txt)
+
+```
+
+To create the virtual environment and install the dependancies, run the following command:
+
+```bash
+poetry install
+```
+
+The file poetry.lock is generated, and the virtual environment is created in the .venv folder.
 
 2. To create the Olist database, execute these two commands:
 
